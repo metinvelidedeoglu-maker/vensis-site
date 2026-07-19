@@ -1,1 +1,2 @@
-Vensis portal deployment trigger: 2026-07-19 18:10 UTC
+Vensis portal deployment trigger: 2026-07-19 18:26 UTC
+Deploy latest main including portal index.php commit 482a3e2.
