@@ -1,2 +1,2 @@
-Vensis portal deployment trigger: 2026-07-19 18:26 UTC
-Deploy latest main including portal index.php commit 482a3e2.
+Vensis portal deployment trigger: 2026-07-19 18:58 UTC
+Deploy mobile layout fix, exact hosted logo, cache reset.
