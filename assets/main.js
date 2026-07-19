@@ -1,1 +1,1 @@
-const t=document.getElementById('toggle'),m=document.getElementById('menu');if(t&&m)t.onclick=()=>m.classList.toggle('open');
+const toggle=document.getElementById('toggle');const menu=document.getElementById('menu');if(toggle&&menu){toggle.addEventListener('click',()=>menu.classList.toggle('open'));menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')))}
