@@ -2,6 +2,8 @@ Options -Indexes
 DirectoryIndex index.php
 RewriteEngine On
 
+# Base64 olarak depolanan görselleri doğru WebP çıktısına yönlendir.
+RewriteRule ^assets/logo(?:-fixed)?\.webp$ asset.php?name=logo [L,QSA]
 RewriteRule ^assets/logo\.svg$ asset.php?name=logo [L,QSA]
 RewriteRule ^assets/portals/fans-sprite\.webp$ asset.php?name=fans [L,QSA]
 RewriteRule ^assets/portals/electric-sprite\.webp$ asset.php?name=electric [L,QSA]
@@ -14,7 +16,7 @@ RewriteRule ^ index.php [L,QSA]
 AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
 </IfModule>
 <IfModule mod_headers.c>
-<FilesMatch "\.(css|js|svg)$">
+<FilesMatch "\.(css|js|svg|webp)$">
 Header set Cache-Control "no-cache, no-store, must-revalidate"
 Header set Pragma "no-cache"
 Header set Expires "0"
