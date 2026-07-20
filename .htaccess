@@ -2,11 +2,9 @@ Options -Indexes
 DirectoryIndex index.php
 RewriteEngine On
 
-# Base64 olarak depolanan görselleri doğru WebP çıktısına yönlendir.
-RewriteRule ^assets/logo(?:-fixed)?\.webp$ asset.php?name=logo [L,QSA]
-RewriteRule ^assets/logo\.svg$ asset.php?name=logo [L,QSA]
-RewriteRule ^assets/portals/fans-sprite\.webp$ asset.php?name=fans [L,QSA]
-RewriteRule ^assets/portals/electric-sprite\.webp$ asset.php?name=electric [L,QSA]
+# Eski WebP yollarını sağlam SVG görsellerine yönlendir.
+RewriteRule ^assets/portals/fans-sprite\.webp$ assets/portals/fans-sprite.svg [L]
+RewriteRule ^assets/portals/electric-sprite\.webp$ assets/portals/electric-sprite.svg [L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
