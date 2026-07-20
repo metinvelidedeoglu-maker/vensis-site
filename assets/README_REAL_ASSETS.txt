@@ -1,0 +1,1 @@
+Bu klasördeki gerçek WebP dosyaları ayrı ayrı yüklenmektedir.
