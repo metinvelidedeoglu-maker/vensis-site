@@ -1,0 +1,1 @@
+Gerçek binary WebP dosyaları ayrı ayrı yükleniyor. Bu commit geçici dağıtım notudur.
