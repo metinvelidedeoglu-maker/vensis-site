@@ -1,53 +1,47 @@
 <?php
-$patterns = [
-  'logo' => __DIR__ . '/assets/logo-fixed.webp*',
-  'fans' => __DIR__ . '/assets/portals/fans-fixed.webp.b64*',
-  'electric' => __DIR__ . '/assets/portals/electric-fixed.webp.b64*',
+$assets = [
+  'logo' => [
+    __DIR__ . '/assets/generated/logo.b64',
+  ],
+  'fans' => [
+    __DIR__ . '/assets/portals/fans-chunks/00.b64',
+  ],
+  'electric' => [
+    __DIR__ . '/assets/portals/electric-00.b64',
+    __DIR__ . '/assets/portals/electric-01.b64',
+    __DIR__ . '/assets/portals/electric-03.b64',
+  ],
 ];
 
 $name = $_GET['name'] ?? '';
-if (!isset($patterns[$name])) {
+if (!isset($assets[$name])) {
   http_response_code(404);
   exit;
 }
 
-$files = glob($patterns[$name], GLOB_NOSORT) ?: [];
-if (!$files) {
-  http_response_code(404);
-  exit;
-}
-
-usort($files, 'strnatcasecmp');
-$raw = '';
-foreach ($files as $file) {
+$encoded = '';
+foreach ($assets[$name] as $file) {
   if (!is_file($file)) {
-    continue;
+    http_response_code(404);
+    header('Content-Type: text/plain; charset=utf-8');
+    echo 'Görsel parçası bulunamadı: ' . basename($file);
+    exit;
   }
+
   $part = file_get_contents($file);
   if ($part === false) {
     http_response_code(500);
     exit;
   }
-  $raw .= $part;
+
+  $encoded .= preg_replace('/\s+/', '', $part);
 }
 
-if ($raw === '') {
-  http_response_code(404);
-  exit;
-}
-
-// Dosya gerçek WebP ise doğrudan, base64 metni ise çözerek gönder.
-if (substr($raw, 0, 4) === 'RIFF' && substr($raw, 8, 4) === 'WEBP') {
-  $data = $raw;
-} else {
-  $encoded = preg_replace('/\s+/', '', $raw);
-  $data = base64_decode($encoded, true);
-}
-
-if ($data === false || substr($data, 0, 4) !== 'RIFF' || substr($data, 8, 4) !== 'WEBP') {
+$data = base64_decode($encoded, false);
+if ($data === false || strlen($data) < 12 || substr($data, 0, 4) !== 'RIFF' || substr($data, 8, 4) !== 'WEBP') {
   http_response_code(500);
   header('Content-Type: text/plain; charset=utf-8');
-  echo 'Görsel verisi okunamadı.';
+  echo 'WebP görsel verisi çözülemedi.';
   exit;
 }
 
