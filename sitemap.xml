@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://www.vensis.com.tr/</loc></url>
-<url><loc>https://www.vensis.com.tr/urunler</loc></url>
-<url><loc>https://www.vensis.com.tr/hakkimizda</loc></url>
-<url><loc>https://www.vensis.com.tr/kataloglar</loc></url>
-<url><loc>https://www.vensis.com.tr/referanslar</loc></url>
-<url><loc>https://www.vensis.com.tr/iletisim</loc></url>
+<url><loc>https://www.vensisklima.com.tr/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+<url><loc>https://www.vensisklima.com.tr/blog/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.vensisklima.com.tr/blog/vortice-lineo-quiet-kanal-tipi-fan-neden-tercih-edilir/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.vensisklima.com.tr/blog/vortice-fan-neden-tercih-edilir/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.vensisklima.com.tr/blog/vortice-fanlar-neden-tercih-edilir/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.vensisklima.com.tr/blog/exproof-fan-secim-rehberi-dogru-fani-nasil-belirleriz/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.vensisklima.com.tr/blog/exproof-fanlarin-teknik-detaylari-ve-endustrideki-kritik-rolu/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.vensisklima.com.tr/blog/endustriyel-guvenlikte-onemli-bir-rol-exproof-fan-nedir-ve-atex-sertifikasinin-onemi/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.vensisklima.com.tr/blog/endustriyel-fan-nedir-nerelerde-kullanilir/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.vensisklima.com.tr/blog/otopark-havalandirma-sistemleri-ne-ise-yarar/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.vensisklima.com.tr/blog/aksiyel-fan-nedir-ne-ise-yarar/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.vensisklima.com.tr/blog/havalandirmada-kullanilan-fan-cesitleri/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.vensisklima.com.tr/blog/havalandirma-sistemleri-nedir/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
