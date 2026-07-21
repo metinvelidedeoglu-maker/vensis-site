@@ -68,12 +68,16 @@ for (const site of fetched) {
     }
     const title = stripText(post.title?.rendered || '');
     const words = contentText.split(/\s+/).filter(Boolean).length;
+    let excerptText = contentText;
+    while (excerptText.toLocaleLowerCase('tr').startsWith(title.toLocaleLowerCase('tr'))) {
+      excerptText = excerptText.slice(title.length).trim();
+    }
     unique.set(hash, {
       slug: slugFixes.get(post.slug) || post.slug,
       title,
       date: post.date.slice(0, 10),
       category: categoryFor(title),
-      excerpt: stripText(post.excerpt?.rendered || contentText).replace(/…\s*$/, '').slice(0, 220).trim() + '…',
+      excerpt: excerptText.slice(0, 220).trim() + '…',
       readingMinutes: Math.max(2, Math.ceil(words / 220)),
       content: sanitizeHtml(post.content?.rendered || ''),
       sources: [{ name: site.name, url: post.link }],
