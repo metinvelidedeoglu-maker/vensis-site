@@ -2,8 +2,8 @@ Options -Indexes
 DirectoryIndex index-direct.php
 RewriteEngine On
 
-# Onaylanan Vitlo görselini doğrudan kullan.
-RewriteRule ^assets/portals/vitlo\.svg$ assets/portals/vitlo-approved.webp [L]
+# Onaylanan Vitlo kartını yeni premium WebP çıktısına yönlendir.
+RewriteRule ^assets/portals/vitlo\.svg$ vitlo-image.php [L,QSA]
 
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
