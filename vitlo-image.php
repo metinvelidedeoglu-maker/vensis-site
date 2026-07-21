@@ -1,8 +1,25 @@
 <?php
-$encoded = '';
+$files = [
+    '00.b64',
+    '01.b64',
+    '02.b64',
+    '03.b64',
+    '04.b64',
+    '05.b64',
+    '06a.b64',
+    '06b.b64',
+    '06c.b64',
+    '06d.b64',
+    '07.b64',
+    '08.b64',
+    '09.b64',
+];
 
-for ($i = 0; $i <= 9; $i++) {
-    $file = __DIR__ . '/assets/portals/vitlo-premium/' . str_pad((string) $i, 2, '0', STR_PAD_LEFT) . '.b64';
+$encoded = '';
+$baseDir = __DIR__ . '/assets/portals/vitlo-premium/';
+
+foreach ($files as $name) {
+    $file = $baseDir . $name;
 
     if (!is_file($file)) {
         http_response_code(404);
@@ -21,12 +38,14 @@ for ($i = 0; $i <= 9; $i++) {
 }
 
 $data = base64_decode($encoded, true);
+$expectedSha256 = '8f0e1ff8947db5ae6ba159e281372f5911644457d5889fc80feb65b7d4be76d5';
 
 if (
     $data === false ||
     strlen($data) < 12 ||
     substr($data, 0, 4) !== 'RIFF' ||
-    substr($data, 8, 4) !== 'WEBP'
+    substr($data, 8, 4) !== 'WEBP' ||
+    hash('sha256', $data) !== $expectedSha256
 ) {
     http_response_code(500);
     header('Content-Type: text/plain; charset=utf-8');
